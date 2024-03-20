@@ -16,4 +16,9 @@ public class CustomerService {
         customerRepository.insert(customer);
         return ResponseEntity.ok("Customer created successfully");
     }
+
+    public ResponseEntity<String> updateCustomer(Customer customer) {
+        customerRepository.save(customer);
+        return ResponseEntity.ok("Customer updated successfully");
+    }
 }

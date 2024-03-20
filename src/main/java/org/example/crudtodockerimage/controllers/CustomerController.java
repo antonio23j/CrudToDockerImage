@@ -5,6 +5,7 @@ import org.example.crudtodockerimage.models.Customer;
 import org.example.crudtodockerimage.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class CustomerController {
     @PostMapping("/createCustomer")
     public ResponseEntity<String> createCustomer(@RequestBody Customer customer){
         return customerService.createCustomer(customer);
+    }
+
+    @PutMapping("/updateCustomer")
+    public ResponseEntity<String> updateCustomer(@RequestBody Customer customer){
+        return customerService.updateCustomer(customer);
     }
 }
