@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.crudtodockerimage.models.Customer;
 import org.example.crudtodockerimage.service.CustomerService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,5 +20,10 @@ public class CustomerController {
     @PutMapping("/updateCustomer")
     public ResponseEntity<String> updateCustomer(@RequestBody Customer customer){
         return customerService.updateCustomer(customer);
+    }
+
+    @DeleteMapping("/deleteCustomer")
+    public void deleteCustomer(@RequestParam String id){
+        customerService.deleteCustomer(id);
     }
 }

@@ -21,4 +21,8 @@ public class CustomerService {
         customerRepository.save(customer);
         return ResponseEntity.ok("Customer updated successfully");
     }
+
+    public void deleteCustomer(String id) {
+        customerRepository.deleteById(id);
+    }
 }
