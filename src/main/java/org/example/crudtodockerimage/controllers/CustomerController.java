@@ -6,6 +6,8 @@ import org.example.crudtodockerimage.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class CustomerController {
@@ -25,5 +27,10 @@ public class CustomerController {
     @DeleteMapping("/deleteCustomer")
     public void deleteCustomer(@RequestParam String id){
         customerService.deleteCustomer(id);
+    }
+
+    @GetMapping("/getCustomers")
+    public List<Customer> getCustomers(){
+        return customerService.getCustomers();
     }
 }

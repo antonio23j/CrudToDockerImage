@@ -6,6 +6,8 @@ import org.example.crudtodockerimage.repository.CustomerRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
@@ -24,5 +26,9 @@ public class CustomerService {
 
     public void deleteCustomer(String id) {
         customerRepository.deleteById(id);
+    }
+
+    public List<Customer> getCustomers() {
+        return customerRepository.findAll();
     }
 }
